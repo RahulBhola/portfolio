@@ -1,3 +1,4 @@
+# portfolio
 # Rahul Bhola — 3D Developer Portfolio
 
 Premium enterprise-grade portfolio built with Next.js 15, Three.js, Framer Motion, and GSAP.
