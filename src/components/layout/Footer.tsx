@@ -22,7 +22,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href={`https://github.com/${PROFILE.github}`}
+              href={PROFILE.github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-subtext hover:text-accent transition-colors"

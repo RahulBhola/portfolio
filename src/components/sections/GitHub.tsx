@@ -113,7 +113,7 @@ export function GitHub() {
           <p className="text-center text-subtext">
             Unable to load GitHub stats. Visit{" "}
             <a
-              href={`https://github.com/${PROFILE.github}`}
+              href={`${PROFILE.github}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
