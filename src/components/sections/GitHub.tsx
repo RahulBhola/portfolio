@@ -13,7 +13,8 @@ export function GitHub() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/github")
+    // Use a relative path so the request respects the site's base path
+    fetch("api/github")
       .then((res) => res.json())
       .then((data) => {
         setStats(data);
@@ -113,12 +114,12 @@ export function GitHub() {
           <p className="text-center text-subtext">
             Unable to load GitHub stats. Visit{" "}
             <a
-              href={`${PROFILE.github}`}
+              href={PROFILE.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              github.com/{PROFILE.github}
+              {PROFILE.github.replace(/^https?:\/\//, "").replace(/\/$/, "")}
             </a>
           </p>
         )}
