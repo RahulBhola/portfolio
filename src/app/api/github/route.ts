@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import type { GitHubStats } from "@/types";
 
+// Force this route to be statically evaluated for `next export` builds
+export const dynamic = "force-static";
+
 const GITHUB_USERNAME = "rahulbhola";
 
 const LANGUAGE_COLORS: Record<string, string> = {
@@ -30,10 +33,9 @@ async function fetchGitHub<T>(url: string): Promise<T | null> {
       headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
     }
 
-    const res = await fetch(url, {
-      headers,
-      next: { revalidate: 3600 },
-    });
+    // Use a simple fetch without Next.js revalidation hints so the route
+    // can be evaluated at build time during `next export`.
+    const res = await fetch(url, { headers });
 
     if (!res.ok) return null;
     return res.json();
