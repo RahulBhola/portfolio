@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "deploy": "next build && gh-pages -d out",
+    "preview": "npx serve@latest out",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next dev",
     "lint": "eslint"
   },
   "dependencies": {
